@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var path = require('path');
+var program = require('commander');
+
+program
+  .version(JSON.parse(fs.readFileSync(path.join(__dirname, '../package.json'), 'utf-8')).version)
+  .usage('<command>')
+  .option('-p, --port <n>', 'Port number to listen to (defaults to 3000)', parseInt)
+  .option('-r, --ref <n>', 'Ref to look for (defaults to all refs)')
+  .parse(process.argv);
+
+var hookshot = require('../lib');
+
+if (program.args.length == 0) {
+  program.help();
+}
+
+var action = program.args.join(' ');
+
+hookshot(program.ref || 'hook', action).listen(program.port || 3000);
+
+
