@@ -20,7 +20,7 @@ hookshot('refs/heads/master', 'git pull && make').listen(3000)
 ### CLI Tool
 
 ```bash
-hookshot -r refs/heads/master git pull && make
+hookshot -r refs/heads/master 'git pull && make'
 ```
 
 ## Usage
@@ -57,9 +57,7 @@ hookshot('refs/heads/master', function(info) {
 
 ```javascript
 // ...
-
 app.use('/my-github-hook', hookshot('refs/heads/master', 'git pull && make'));
-
 // ...
 ```
 
@@ -106,11 +104,11 @@ npm install -g hookshot
 The CLI tool takes as argument a command to execute upon GitHub post-receive hook:
 
 ```bash
-hookshot echo "PUSHED!"
+hookshot 'echo "PUSHED!"'
 ```
 
 You can optionally specify an HTTP port via the `-p` flag (defaults to 3000) and a ref via the `-r` flag (defaults to all refs):
 
 ```bash
-hookshot -r refs/heads/master -p 9001 echo "pushed to master!"
+hookshot -r refs/heads/master -p 9001 'echo "pushed to master!"'
 ```
