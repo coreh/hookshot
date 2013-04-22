@@ -77,7 +77,7 @@ hookshot()
 
 The `push` event is fired when a push is made to any ref:
 
-```
+```javascript
 hookshot()
 .on('push', function(info) {
   console.log('ref ' + info.ref + ' was pushed.')
@@ -86,7 +86,7 @@ hookshot()
 
 Finally, the `hook` event is fired for every post-receive hook that is send by GitHub.
 
-```
+```javascript
 hookshot()
 .on('push', function(info) {
   console.log('ref ' + info.ref + ' was pushed.')
