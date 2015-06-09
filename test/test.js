@@ -19,20 +19,17 @@ describe('hookshot server', function() {
       .set('Accept', 'application/json')
       .send({})
       .end(function(err) {
-        assert(err);
+        assert(err instanceof Error);
         done();
       });
   });
 
   it('should emit an error on invalid payload', function(done) {
 
-    var errorEmitCheck = function(err) {
-      assert(err);
+    server.on('error', function(err) {
+      assert(err instanceof Error);
       done();
-      server.removeListener('error', errorEmitCheck);
-    };
-
-    server.on('error', errorEmitCheck);
+    });
 
     request
       .post('/')
@@ -40,7 +37,7 @@ describe('hookshot server', function() {
       .send({})
       .expect(500)
       .end(function(err) {
-        assert(err);
+        assert(err instanceof Error);
       });
   });
 

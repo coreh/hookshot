@@ -93,6 +93,23 @@ hookshot()
 })
 ```
 
+### Spawn Event
+
+If hookshot was created with a shell command as the action, it will throw a spawn event with the child_process spawn instance.
+
+```javascript
+var server = hookshot('refs/head/master', 'git pull && make').listen(3000);
+
+server.on('spawn', function(spawn) {
+  // Bind on close to get exit code
+  spawn.on('close', function(code) {
+    if ( code !== 0 ) {
+      console.log('something went wrong');
+    }
+  });
+});
+```
+
 ### CLI Tool
 
 A companion CLI tool is provided for convenience. To use it, install **hookshot** via npm using the `-g` flag:
