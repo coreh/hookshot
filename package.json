@@ -2,8 +2,15 @@
   "name": "hookshot",
   "author": "Marco Aurelio <thecoreh@gmail.com>",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coreh/hookshot.git"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha"
+  },
   "dependencies": {
-    "express": "~4.9.0", 
+    "express": "~4.9.0",
     "commander": "~2.3.0",
     "lockfile": "~1.0.0",
     "body-parser": "~1.8.2"
@@ -11,5 +18,9 @@
   "main": "lib",
   "bin": {
     "hookshot": "./bin/hookshot"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.5",
+    "supertest": "^1.0.1"
   }
 }
