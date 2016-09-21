@@ -2,7 +2,7 @@
 
 ![](http://i.cloudup.com/i_vGKjtQcY2.png)
 
-"You found the *hookshot*! It's a spring-loaded chain that you can cast out to hook things."
+"You found the *hookshot*! (yey!) It's a spring-loaded chain that you can cast out to hook things."
 
 ## Intro
 
